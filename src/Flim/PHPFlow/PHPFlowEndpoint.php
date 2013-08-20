@@ -1,8 +1,10 @@
 <?php
 
+namespace Flim\PHPFlow;
+
 /**
- * @Description List of Flowdock API endpoints
- * Class PHPFlowEndPoint
+ * List of Flowdock API endpoints
+ *
  */
 class PHPFlowEndPoint
 {

@@ -1,57 +1,75 @@
 # PHPFlow
 PHP Library for Flowdock API use
-
 # Installation
-You just have to include 'PHPFlow.class.php' in your project
-
+Install composer in the project
+```BASH
+curl -sS https://getcomposer.org/installer | php
+php composer.phar install
+```
+Then insert composer autoload requirement line in your project
+```PHP
+require_once __DIR__ . '/vendor/autoload.php';
+```
 # Usage
 ## Push message
 ### Write message to CHAT
 ```PHP
-PHPFlow::pushToChat("flow_token", "message", "external_user_name");
+\Flim\PHPFlow\PHPFlow::pushToChat("flow_token", "Hello world!", "PHPFlow");
 ```
 ### Write message to TEAM INBOX
 ```PHP
-PHPFlow::pushToTeamInbox("flow_token", "the_source", "the_email", "the_subject", "the_content");
-```
-## Streaming
-### Stream message from a flow
-```PHP
-// Callback function have to return strlen($data);
-function callback($ch, $data)
-{
-    echo "$data";
-    return strlen($data);
-}
-
-PHPFlow::streamFlow("user_token", "company_name", "flow_name", 'callback');
-```
-### Stream message from flows
-```PHP
-// Callback function have to return strlen($data);
-function callback($ch, $data)
-{
-    echo "$data";
-    return strlen($data);
-}
-
-PHPFlow::streamFlows("user_token", array("company_name/flow_name", "company_name/another_flow_name"), 'callback');
+\Flim\PHPFlow\PHPFlow::pushToTeamInbox("flow_token", "the_source", "email", "the_subject", "the_content", array("tags" => "#important, hardwork, @everyone"));
 ```
 ## Users
 ### Get all users
 ```PHP
-$users = PHPFlow::getUsers("user_token");
+$results = \Flim\PHPFlow\PHPFlow::getUsers("user_api_token");
+if (false !== $results) {
+    print_r(json_decode($results));
+}
 ```
 ### Get flow users
 ```PHP
-$users = PHPFlow::getFlowUsers("user_token", "company_name", "flow_name");
+$results = \Flim\PHPFlow\PHPFlow::getFlowUsers("user_api_token", "company", "flow");
+if (false !== $results) {
+    print_r(json_decode($results));
+}
 ```
 ### Get a user
 ```PHP
-$user = PHPFlow::getUser("user_token", "user_id");
+$results = \Flim\PHPFlow\PHPFlow::getUser("user_api_token", "user_id");
+if (false !== $results) {
+    print_r(json_decode($results));
+}
 ```
 # Flows
 ### Get all flows
 ```PHP
-$flows = PHPFlow::getAllFlows("user_token");
+$results = \Flim\PHPFlow\PHPFlow::getAllFlows("user_api_token");
+if (false !== $results) {
+    print_r(json_decode($results));
+}
+```
+## Streaming
+### Stream message from a flow
+```PHP
+\Flim\PHPFlow\PHPFlow::streamFlow("user_api_token", "company", "flow", 'callback');
+
+// Must return strlen($data)
+function callback($ch, $data)
+{
+    print_r($data);
+    return strlen($data);
+}
+```
+### Stream message from flows
+```PHP
+\Flim\PHPFlow\PHPFlow::streamFlows("user_api_token", array("company/flow", "company/flow2"), 'callback');
+
+// Must return strlen($data)
+function callback($ch, $data)
+{
+    print_r($data);
+    return strlen($data);
+}
 ```
