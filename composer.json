@@ -1,4 +1,9 @@
 {
+    "name": "Flim/PHPFlow",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.0"
+    },
     "autoload": {
         "psr-0": {
             "Flim\\PHPFlow\\": "src/"
