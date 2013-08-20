@@ -2,7 +2,7 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-\Fliiim\PHPFlow\PHPFlow::streamFlows("user_api_token", array("company/flow1", "company/flow2"), 'callback');
+\Flim\PHPFlow\PHPFlow::streamFlows("user_api_token", array("company/flow1", "company/flow2"), 'callback');
 
 // Must return strlen($data)
 function callback($ch, $data)

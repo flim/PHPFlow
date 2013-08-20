@@ -1,9 +1,9 @@
 <?php
 
-namespace Fliiim\PHPFlow;
+namespace Flim\PHPFlow;
 
-use Fliiim\PHPFlow\PHPFlowBase;
-use Fliiim\PHPFlow\PHPFlowEndpoint;
+use Flim\PHPFlow\PHPFlowBase;
+use Flim\PHPFlow\PHPFlowEndpoint;
 
 class PHPFlow extends PHPFlowBase
 {

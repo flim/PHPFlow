@@ -1,6 +1,6 @@
 <?php
 
-namespace Fliiim\PHPFlow;
+namespace Flim\PHPFlow;
 
 /**
  * List of Flowdock API endpoints
