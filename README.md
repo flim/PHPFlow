@@ -14,30 +14,30 @@ require_once __DIR__ . '/vendor/autoload.php';
 ## Push message
 ### Write message to CHAT
 ```PHP
-\Flim\PHPFlow\PHPFlow::pushToChat("flow_token", "Hello world!", "PHPFlow");
+PHPFlow::pushToChat("flow_token", "Hello world!", "PHPFlow");
 ```
 ### Write message to TEAM INBOX
 ```PHP
-\Flim\PHPFlow\PHPFlow::pushToTeamInbox("flow_token", "the_source", "email", "the_subject", "the_content", array("tags" => "#important, hardwork, @everyone"));
+PHPFlow::pushToTeamInbox("flow_token", "the_source", "email", "the_subject", "the_content", array("tags" => "#important, hardwork, @everyone"));
 ```
 ## Users
 ### Get all users
 ```PHP
-$results = \Flim\PHPFlow\PHPFlow::getUsers("user_api_token");
+$results = PHPFlow::getUsers("user_api_token");
 if (false !== $results) {
     print_r(json_decode($results));
 }
 ```
 ### Get flow users
 ```PHP
-$results = \Flim\PHPFlow\PHPFlow::getFlowUsers("user_api_token", "company", "flow");
+$results = PHPFlow::getFlowUsers("user_api_token", "company", "flow");
 if (false !== $results) {
     print_r(json_decode($results));
 }
 ```
 ### Get a user
 ```PHP
-$results = \Flim\PHPFlow\PHPFlow::getUser("user_api_token", "user_id");
+$results = PHPFlow::getUser("user_api_token", "user_id");
 if (false !== $results) {
     print_r(json_decode($results));
 }
@@ -45,7 +45,7 @@ if (false !== $results) {
 # Flows
 ### Get all flows
 ```PHP
-$results = \Flim\PHPFlow\PHPFlow::getAllFlows("user_api_token");
+$results = PHPFlow::getAllFlows("user_api_token");
 if (false !== $results) {
     print_r(json_decode($results));
 }
@@ -53,7 +53,7 @@ if (false !== $results) {
 ## Streaming
 ### Stream message from a flow
 ```PHP
-\Flim\PHPFlow\PHPFlow::streamFlow("user_api_token", "company", "flow", 'callback');
+PHPFlow::streamFlow("user_api_token", "company", "flow", 'callback');
 
 // Must return strlen($data)
 function callback($ch, $data)
@@ -64,7 +64,7 @@ function callback($ch, $data)
 ```
 ### Stream message from flows
 ```PHP
-\Flim\PHPFlow\PHPFlow::streamFlows("user_api_token", array("company/flow", "company/flow2"), 'callback');
+PHPFlow::streamFlows("user_api_token", array("company/flow", "company/flow2"), 'callback');
 
 // Must return strlen($data)
 function callback($ch, $data)

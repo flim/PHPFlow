@@ -1,6 +1,6 @@
 <?php
 
-namespace Flim\PHPFlow;
+namespace Fliiim\PHPFlow;
 
 abstract class PHPFlowBase
 {
