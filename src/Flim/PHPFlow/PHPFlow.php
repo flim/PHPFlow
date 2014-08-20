@@ -37,7 +37,6 @@ class PHPFlow extends PHPFlowBase
     {
         $data = array('source' => $source, 'from_address' => $fromAddress, 'subject' => $subject, 'content' => $content);
         $data = array_merge($data, $options);
-        print_r($data);
         return PHPFlow::postRequest(sprintf(PHPFlowEndPoint::TEAM_INBOX, $flowToken), $data);
     }
 
