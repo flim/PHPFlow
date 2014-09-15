@@ -10,7 +10,7 @@ abstract class PHPFlowBase
 
     public abstract static function streamFlow($userAPIToken, $organisation, $flow, $callback);
 
-    public abstract static function streamFlows($userAPIToken, $filter = array(), $callback, $active = "", $accept = "");
+    public abstract static function streamFlows($userAPIToken, $filter = array(), $callback, $active = '', $accept = '');
 
     public abstract static function getUsers($userAPIToken);
 
