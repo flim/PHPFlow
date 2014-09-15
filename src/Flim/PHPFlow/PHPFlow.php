@@ -36,6 +36,9 @@ class PHPFlow extends PHPFlowBase
     public static function pushToTeamInbox($flowToken, $source, $fromAddress, $subject, $content, $options = array())
     {
         $data = array('source' => $source, 'from_address' => $fromAddress, 'subject' => $subject, 'content' => $content);
+        if (isset($options['tags'])) {
+            $options['tags'] = str_replace(' ', '', $options['tags']);
+        }
         $data = array_merge($data, $options);
         return PHPFlow::postRequest(sprintf(PHPFlowEndPoint::TEAM_INBOX, $flowToken), $data);
     }
