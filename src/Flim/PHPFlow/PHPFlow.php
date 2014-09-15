@@ -46,10 +46,11 @@ class PHPFlow extends PHPFlowBase
     /**
      * Stream all messages from a single flow.
      *
-     * @param string $userToken
+     * @param $userAPIToken
      * @param string $organisation
      * @param string $flow
      * @param function $callback
+     * @internal param string $userToken
      */
     public static function streamFlow($userAPIToken, $organisation, $flow, $callback)
     {
@@ -70,11 +71,12 @@ class PHPFlow extends PHPFlowBase
     /**
      * Stream all messages from flows specified in filter query parameter.
      *
-     * @param string $userToken
+     * @param $userAPIToken
      * @param array $filter
      * @param function $callback
      * @param string $active
      * @param string $accept
+     * @internal param string $userToken
      */
     public static function streamFlows($userAPIToken, $filter = array(), $callback, $active = "", $accept = "")
     {
@@ -95,7 +97,8 @@ class PHPFlow extends PHPFlowBase
     /**
      * List all users visible to the authenticated user
      *
-     * @param string $userToken
+     * @param $userAPIToken
+     * @internal param string $userToken
      * @return mixed the JSON string on success or False if failed
      */
     public static function getUsers($userAPIToken)
@@ -111,9 +114,10 @@ class PHPFlow extends PHPFlowBase
      * List users of a flow.
      * Authenticated user must belong to the organization.
      *
-     * @param string $userToken
+     * @param $userAPIToken
      * @param string $organisation
      * @param string $flow
+     * @internal param string $userToken
      * @return mixed the JSON string if success or False if failed
      */
     public static function getFlowUsers($userAPIToken, $organisation, $flow)
@@ -128,8 +132,9 @@ class PHPFlow extends PHPFlowBase
     /**
      * Get information of a single user.
      * Authenticated user must belong to same organization as the target user.
-     * @param string $userToken
+     * @param $userAPIToken
      * @param string $userId
+     * @internal param string $userToken
      * @return mixed the JSON string if success or False if failed
      */
     public static function getUser($userAPIToken, $userId)
@@ -143,8 +148,9 @@ class PHPFlow extends PHPFlowBase
 
     /**
      * Get all flows accessible by the user
-     * @param string $userToken
+     * @param $userAPIToken
      * @param int $users 1 to load user into result, 0 not
+     * @internal param string $userToken
      * @return mixed return the JSON string if success or False if failed
      */
     public static function  getAllFlows($userAPIToken, $users = 0)
