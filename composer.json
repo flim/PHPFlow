@@ -1,7 +1,7 @@
 {
     "name": "flim/phpflow",
     "description": "PHP Library for Flowdock API usage",
-    "keywords": ["flowdock","api", "php"],
+    "keywords": ["flowdock", "api", "php"],
     "license": "MIT",
     "homepage": "http://github.com/flim/phpflow",
     "require": {
