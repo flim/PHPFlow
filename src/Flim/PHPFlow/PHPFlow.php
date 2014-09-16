@@ -2,6 +2,9 @@
 
 namespace Flim\PHPFlow;
 
+use Flim\PHPFlow\PHPFlowBase;		
+use Flim\PHPFlow\PHPFlowEndpoint;
+
 class PHPFlow extends PHPFlowBase
 {
 	/**
