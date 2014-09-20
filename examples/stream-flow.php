@@ -7,6 +7,6 @@ require __DIR__ . '/../vendor/autoload.php';
 // Must return strlen($data)
 function callback($ch, $data)
 {
-	print_r($data);
-	return strlen($data);
+    print_r($data);
+    return strlen($data);
 }
